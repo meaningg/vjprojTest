@@ -13,7 +13,7 @@
     </transition-group>
     <HandTotal :index="index" />
     <HandBet :hand="hand" />
-    <HandResult :result="toResultString(hand.result)" />
+    <HandResult :result="toResultString(hand.result)" :sound="handleGameResult(hand.result)"/>
   </div>
 </template>
 
@@ -24,6 +24,8 @@ import PlayingCard from './GameHand/PlayingCard'
 import HandResult from './GameHand/HandResult'
 import HandTotal from './GameHand/HandTotal'
 import HandBet from './GameHand/HandBet'
+import winSound from '../../assets/winSound.wav';
+import loseSound from '../../assets/looseSound.wav';
 export default {
   components: {
     PlayingCard,
@@ -58,12 +60,53 @@ export default {
     },
     ...mapGetters(['isSplit'])
   },
+  data() {
+    return {
+      isSoundPlaying: false,
+    }
+  },
   methods: {
+    
     toResultString (resultValue) {
       for (const key in blackjack.results) {
         if (blackjack.results[key] === resultValue) return key
       }
+    },
+    playWinSound() {
+      const audio = new Audio(winSound);
+      if (this.isSoundPlaying) return
+      if (!this.isSoundPlaying) {
+        audio.play();
+        this.isSoundPlaying = true
+        setTimeout(() => {
+        this.isSoundPlaying = false; 
+      }, 5000); 
+      }
+    },
+    playLoseSound() {
+      const audio = new Audio(loseSound);
+      if (this.isSoundPlaying) return
+      if (!this.isSoundPlaying) {
+        audio.play();
+        this.isSoundPlaying = true
+        setTimeout(() => {
+        this.isSoundPlaying = false; 
+      }, 5000); 
+      }
+    },
+    handleGameResult(resultValue) {
+    if (resultValue === 1) {
+      this.playLoseSound();
+    } else if (resultValue === 2 ) {
+      this.playWinSound();
     }
+    else if (resultValue === 3 ) {
+      this.playLoseSound();
+    }
+    else if (resultValue === 5 ) {
+      this.playWinSound();
+    }
+  },
   }
 }
 </script>

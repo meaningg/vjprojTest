@@ -27,6 +27,31 @@ export default {
     result: {
       type: String,
       required: false
+    },
+    sound: {
+      type: String,
+      required: false
+    }
+  },
+ 
+  methods: {
+    playSound() {
+      if (this.sound === 'win') {
+        const audio = new Audio('/path/to/win.mp3');
+        audio.play();
+        
+      } else if (this.sound === 'lose') {
+        const audio = new Audio('/path/to/lose.mp3');
+        audio.play();
+        
+      }
+    }
+  },
+  watch: {
+    sound(value) {
+      if (value === 'win' || value === 'lose') {
+        this.playSound();
+      }
     }
   }
 }

@@ -3,6 +3,7 @@
     :class="{ 'is-disabled': !isEnabled, 'is-highlighted': isHighlighted }"
     @click="doAction"
   >
+   <audio ref="audioPlayer" src="/buttonSound.wav"></audio>
     <svg style="display: none">
       <symbol id="dealRound" viewBox="0 0 88 88">
         <path d="M22.36,43h5.26c4.43,0,7.49,3,7.49,7v0c0,4-3.06,7-7.49,7H22.36Zm5.26,11.84a4.6,4.6,0,0,0,4.89-4.75v0a4.63,4.63,0,0,0-4.89-4.79H24.84v9.59Z" transform="translate(-6 -6)" />
@@ -79,7 +80,10 @@ export default {
   methods: {
     doAction () {
       if (this.isEnabled) this.$store.dispatch(this.action, {})
-    }
+      const audioPlayer = this.$refs.audioPlayer
+      audioPlayer.play();
+    },
+    
   }
 }
 </script>
@@ -97,7 +101,7 @@ svg {
   border: 0;
   margin: 0 0.5rem;
   background-color: rgba(255, 255, 255, 0.75);
-  border-radius: 2em;
+  border-radius: 1em;
   transition: opacity 0.2s ease;
   box-shadow: 0 0.25rem 0 0 rgba(0, 0, 0, 0.25);
   transform: translateY(-0.125rem);

@@ -1,8 +1,8 @@
 <template>
   <div class="game">
     <TheStars />
-    <TheSidebar />
     <TheGameArea />
+    <TheSidebar />
     <TheMenuButton />
     <TheTitleScreen v-if="$store.state.isTitleShowing" />
   </div>

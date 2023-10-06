@@ -1,12 +1,11 @@
-# VLACKJACK :spades: :hearts: :clubs: :diamonds:
+# Double Down Dash :spades: :hearts: :clubs: :diamonds:
 
 ## :rocket: Play Now
 
-https://kevinleedrum.github.io/vlackjack/
 
 ## Introduction
 
-Vlackjack is a single-player HTML5 blackjack game built with [vue](https://vuejs.org/) and [vuex](https://vuex.vuejs.org/) with optional basic strategy hints.
+Double Down Dash is a single-player HTML5 blackjack game built with [vue](https://vuejs.org/) and [vuex](https://vuex.vuejs.org/) with optional basic strategy hints.
 
 All of the animations are performed via CSS3, Vue transitions, and SVG animation.
 
@@ -41,5 +40,3 @@ The basic strategy suggestions are based on this ruleset.
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
-
-Copyright (c) 2017-Present, Kevin Lee Drum

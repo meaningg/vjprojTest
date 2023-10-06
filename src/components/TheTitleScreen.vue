@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
     <div class="title-screen">
-      <GameLogo />
+      <p class="GameLogoTitle">Double Down Dash</p>
       <svg id="orbits" viewBox="0 0 182 63.95">
         <circle id="orbits-sun" cx="91" cy="31.97" r="31.97" fill="currentColor" class="text-white" opacity="0.75"/>
         <ellipse id="orbits-ring-2" cx="91" cy="31.97" rx="57.63" ry="13.9" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" opacity="0.5"/>
@@ -28,6 +28,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Autour+One&family=Inter:wght@100;200;400;600;700;800;900&family=Pixelify+Sans&display=swap');
 .title-screen {
   position: absolute;
   top: 0;
@@ -38,13 +39,18 @@ export default {
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  font-size: 5rem;
+  font-size: 0.8rem;
   font-weight: 100;
-  letter-spacing: 0.5rem;
+  letter-spacing: 0.1rem;
   transition: all 0.2s;
   z-index: 200;
   background: $secondary-color;
   color: $gold;
+}
+.GameLogoTitle {
+  font-family: 'Autour One', cursive;
+  font-size: 4rem;
+  color: rgb(93, 214, 129);
 }
 @media (max-width: 1023px) {
   #logo {
@@ -53,10 +59,12 @@ export default {
 }
 #logo {
   width: 45%;
+  
 }
 @media (max-width: 1023px) {
   #orbits {
     width: 40%;
+    
   }
 }
 #orbits {
